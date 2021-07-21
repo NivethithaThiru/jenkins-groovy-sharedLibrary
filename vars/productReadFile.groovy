@@ -1,8 +1,8 @@
 #!/usr/bin/env groovy
 
-def readFile(String path)
+def readFile()
 {
-    new File(${path}).eachLine {  
+    new File("https://github.com/NivethithaThiru/jenkins-groovy-sharedLibrary/blob/master/product.csv").eachLine {  
          line -> println "$line"; 
     }
 } 
