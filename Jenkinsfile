@@ -11,7 +11,7 @@ node {
     println("Current Directory: " + rootDir)
 
     // point to exact source file
-    def file1 = load "${rootDir}/vars/productReadFile.Groovy"
+    def file1 = load "${rootDir}/vars/productReadFile.groovy"
 
     file1.readFile()
     
