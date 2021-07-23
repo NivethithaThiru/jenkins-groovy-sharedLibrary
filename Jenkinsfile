@@ -1,3 +1,5 @@
+@library(jenkins-groovy-sharedLibrary)
+
 node {
     // Git checkout before load source the file
     checkout scm
