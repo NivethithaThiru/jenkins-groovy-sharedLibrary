@@ -1,18 +1,42 @@
-node {
-    // Git checkout before load source the file
-    checkout scm
+@Library('jenkins-groovy-sharedLibrary') _
 
-    // To know files are checked out or not
-    sh '''
-        ls -lhrt
-    '''
-
-    def rootDir = pwd()
-    println("Current Directory: " + rootDir)
-
-    // point to exact source file
-    def file1 = load "${rootDir}/vars/productReadFile.groovy"
-
-    file1.readFile()
-    
-}
+pipeline {
+    agent any
+    stages {
+        stage('Demo') {
+            steps {
+                echo 'Hello World'
+                hello 'Nivethitha Thirumurugan'
+            }
+        }
+        stage('Build') {
+            steps {
+                script{
+                    //git branch: 'master', url: 'https://github.com/NivethithaThiru/jenkins-groovy-sharedLibrary'
+                    def filePath = readFile "product.csv" 
+                    def lines = filePath.readLines() 
+                    for (line in lines) { 
+                        println "$line"
+                    } 
+                }
+            }
+        }
+        stage('Test') {
+            steps {
+                echo 'Output shown successfully. Moved to next stage!!'
+            }
+        }
+            stage('Send Email') {
+            steps {
+                echo 'Post build Action - Sending Email'
+                emailext ( attachLog: true, 
+                body: """<p>EXECUTED: Job <b>\'${env.JOB_NAME} : ${env.BUILD_NUMBER}\'</b></p>
+                <p>View console output at <a href="${env.BUILD_URL}">Jenkins ${env.JOB_NAME}:${env.BUILD_NUMBER}</a></p>""",
+                recipientProviders: [requestor(), buildUser()],
+                replyTo: 'do-not-reply@company.com', 
+                subject: """Status: ${currentBuild.result?:'SUCCESS'} - Job \'${env.JOB_NAME}:${env.BUILD_NUMBER}\'""",
+                to: 'nivethithathiru1@gmail.com' )
+            }
+        }
+    }
+} 
