@@ -21,14 +21,9 @@ pipeline {
                 }
             }
         }
-        stage('Test') {
+        stage('Send Email') {
             steps {
-                echo 'Output shown successfully. Moved to next stage!!'
-            }
-        }
-            stage('Send Email') {
-            steps {
-                echo 'Post build Action - Sending Email'
+                echo 'Sending Email !!'
                 emailext ( attachLog: true, 
                 body: """<p>EXECUTED: Job <b>\'${env.JOB_NAME} : ${env.BUILD_NUMBER}\'</b></p>
                 <p>View console output at <a href="${env.BUILD_URL}">Jenkins ${env.JOB_NAME}:${env.BUILD_NUMBER}</a></p>""",
