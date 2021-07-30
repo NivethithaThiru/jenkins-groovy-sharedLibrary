@@ -9,7 +9,7 @@ pipeline {
                 hello 'Nivethitha Thirumurugan'
             }
         }
-        stage('Build') {
+        stage('ReadFile') {
             steps {
                 script{
                     //git branch: 'master', url: 'https://github.com/NivethithaThiru/jenkins-groovy-sharedLibrary'
@@ -21,7 +21,7 @@ pipeline {
                 }
             }
         }
-        stage('Send Email') {
+        stage('Email Notification') {
             steps {
                 echo 'Sending Email !!'
                 emailext ( attachLog: true, 
@@ -34,4 +34,4 @@ pipeline {
             }
         }
     }
-} 
+}
