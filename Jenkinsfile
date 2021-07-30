@@ -13,7 +13,7 @@ pipeline {
             steps {
                 script{
                     //git branch: 'master', url: 'https://github.com/NivethithaThiru/jenkins-groovy-sharedLibrary'
-                    def filePath = readFile "product.csv" 
+                    def filePath = readFile "AppReleases.csv" 
                     def lines = filePath.readLines() 
                     for (line in lines) { 
                         println "$line"
