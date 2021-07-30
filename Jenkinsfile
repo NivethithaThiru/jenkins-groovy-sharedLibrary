@@ -9,7 +9,7 @@ pipeline {
                 hello 'Nivethitha Thirumurugan'
             }
         }
-        stage('ReadFile') {
+        stage('Build') {
             steps {
                 script{
                     //git branch: 'master', url: 'https://github.com/NivethithaThiru/jenkins-groovy-sharedLibrary'
