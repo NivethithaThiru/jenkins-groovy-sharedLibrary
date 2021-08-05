@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def readFile(String path)
+def call(String path)
 {
     new File(${path}).eachLine {  
          line -> println "$line"; 
