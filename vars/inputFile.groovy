@@ -6,6 +6,7 @@ def fileRead(String filename = "product.csv") {
     for (line in lines) { 
       println "$line"
     }*/
+    
     sh "echo Displaying File Contents!"
     sh "cat ${filename}"
 }
