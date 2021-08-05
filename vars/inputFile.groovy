@@ -6,7 +6,7 @@ def call() {
     for (line in lines) { 
       println "$line"
     }*/
-    sh "echo Hello Nivi!"
+    sh "echo Displaying File Contents!"
     sh "cat product.csv"
 }
 
