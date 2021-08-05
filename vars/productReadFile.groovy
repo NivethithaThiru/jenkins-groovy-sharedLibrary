@@ -6,6 +6,3 @@ def call(String path)
          line -> println "$line"; 
     }
 } 
-
-return this
-   
