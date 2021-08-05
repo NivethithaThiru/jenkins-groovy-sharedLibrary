@@ -1,12 +1,12 @@
 #!/usr/bin/env groovy
 
-def fileRead() {
+def fileRead(String filename = "product.csv") {
     /*def filePath = readFile "AppReleases.csv" 
     def lines = filePath.readLines() 
     for (line in lines) { 
       println "$line"
     }*/
     sh "echo Displaying File Contents!"
-    sh "cat product.csv"
+    sh "cat ${filename}"
 }
 
