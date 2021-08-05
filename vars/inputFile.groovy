@@ -7,6 +7,6 @@ def call() {
       println "$line"
     }*/
     sh "echo Hello Nivi!"
-    sh "cat AppReleases.csv"
+    sh "cat product.csv"
 }
 
