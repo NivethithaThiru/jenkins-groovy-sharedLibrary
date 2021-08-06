@@ -1,6 +1,6 @@
 #!/usr/bin/env groovy
 
-def fileRead(String filename = "product.csv") {
+def fileRead(String filename) {
     println("Displaying File Contents");
     def filePath = readFile "${filename}" 
     def lines = filePath.readLines() 
